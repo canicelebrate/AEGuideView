@@ -29,30 +29,47 @@
 }
 
 -(void)showGuideViewWithImages:(NSArray *)images andButtonTitle:(NSString *)title andButtonTitleColor:(UIColor *)titleColor andButtonBGColor:(UIColor *)bgColor andButtonBorderColor:(UIColor *)borderColor withCompletionBlock:(void (^)(void))block{
-    AEGuideViewInnerViewController* controller = [[AEGuideViewInnerViewController alloc] init];
-    controller.images = images;
-    controller.buttonTitle = title;
-    controller.titleColor = titleColor;
-    controller.buttonBgColor = bgColor;
-    controller.buttonBorderColor = borderColor;
     
-    __weak AEGuideView* weakSelf = self;
-    controller.completion = ^(void){
-        [weakSelf resignKeyWindow];
-        weakSelf.hidden = YES;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *version = [[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    
+    //根据版本号来判断是否需要显示引导页，一般来说每更新一个版本引导页都会有相应的修改
+    BOOL showedBefore = [userDefaults boolForKey:[NSString stringWithFormat:@"AEGuideView_version_%@", version]];
+    
+    if (!showedBefore) {
+        AEGuideViewInnerViewController* controller = [[AEGuideViewInnerViewController alloc] init];
+        controller.images = images;
+        controller.buttonTitle = title;
+        controller.titleColor = titleColor;
+        controller.buttonBgColor = bgColor;
+        controller.buttonBorderColor = borderColor;
+        
+        __weak AEGuideView* weakSelf = self;
+        controller.completion = ^(void){
+            [weakSelf resignKeyWindow];
+            weakSelf.hidden = YES;
+            if(block){
+                block();
+            }
+        };
+        
+        [self setRootViewController:controller];
+        [self addSubview:controller.view];
+        
+        _coreView = controller.view;
+        [self setupContraints];
+        
+        [self makeKeyAndVisible];
+        self.hidden = NO;
+        
+        [userDefaults setBool:YES forKey:[NSString stringWithFormat:@"AEGuideView_version_%@", version]];
+        [userDefaults synchronize];
+    }
+    else{
         if(block){
             block();
         }
-    };
-    
-    [self setRootViewController:controller];
-    [self addSubview:controller.view];
-    
-    _coreView = controller.view;
-    [self setupContraints];
-    
-    [self makeKeyAndVisible];
-    self.hidden = NO;
+    }
    
     
     
