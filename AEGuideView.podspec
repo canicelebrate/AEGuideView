@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/canicelebrate/AEGuideView.git", :tag => s.version }
   s.platform     = :ios, '9.0'
   s.source_files = 'AEGuideView/*.{h,m}'
-  s.public_header_files = "AEGuideView/AEGuideView.h"
-  s.framework  = 'CoreGraphics'
+  #s.public_header_files = "AEGuideView/AEGuideView.h"
+  #s.framework  = 'CoreGraphics'
   s.requires_arc = true
 end
