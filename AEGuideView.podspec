@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "William Wang" => "canicelebrate@gmail.com" }
   s.source       = { :git => "https://github.com/canicelebrate/AEGuideView.git", :tag => s.version }
-  s.platform     = :ios, '9.0'
+  s.platform     = :ios, '8.0'
   s.source_files = 'AEGuideView/*.{h,m}'
   #s.public_header_files = "AEGuideView/AEGuideView.h"
   #s.framework  = 'CoreGraphics'
