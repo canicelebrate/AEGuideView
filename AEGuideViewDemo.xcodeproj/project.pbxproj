@@ -15,6 +15,12 @@
 		C2CC85611DD59A6C00A93429 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2CC855F1DD59A6C00A93429 /* LaunchScreen.storyboard */; };
 		C2CC856C1DD59A6C00A93429 /* AEGuideViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC856B1DD59A6C00A93429 /* AEGuideViewDemoTests.m */; };
 		C2CC85771DD59A6C00A93429 /* AEGuideViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC85761DD59A6C00A93429 /* AEGuideViewDemoUITests.m */; };
+		C2CC85871DD59AEA00A93429 /* AEGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC85861DD59AEA00A93429 /* AEGuideView.m */; };
+		C2CC858A1DD59BFB00A93429 /* AEGuideViewInnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC85891DD59BFB00A93429 /* AEGuideViewInnerViewController.m */; };
+		C2CC858D1DD59C9A00A93429 /* AEGuideViewInnerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC858C1DD59C9A00A93429 /* AEGuideViewInnerCollectionViewCell.m */; };
+		C2CC85931DD5C40500A93429 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C2CC85901DD5C40500A93429 /* 1.png */; };
+		C2CC85941DD5C40500A93429 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C2CC85911DD5C40500A93429 /* 2.png */; };
+		C2CC85951DD5C40500A93429 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C2CC85921DD5C40500A93429 /* 3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,16 @@
 		C2CC85721DD59A6C00A93429 /* AEGuideViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AEGuideViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2CC85761DD59A6C00A93429 /* AEGuideViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AEGuideViewDemoUITests.m; sourceTree = "<group>"; };
 		C2CC85781DD59A6C00A93429 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2CC85851DD59AEA00A93429 /* AEGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEGuideView.h; sourceTree = "<group>"; };
+		C2CC85861DD59AEA00A93429 /* AEGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEGuideView.m; sourceTree = "<group>"; };
+		C2CC85881DD59BFB00A93429 /* AEGuideViewInnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEGuideViewInnerViewController.h; sourceTree = "<group>"; };
+		C2CC85891DD59BFB00A93429 /* AEGuideViewInnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEGuideViewInnerViewController.m; sourceTree = "<group>"; };
+		C2CC858B1DD59C9A00A93429 /* AEGuideViewInnerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEGuideViewInnerCollectionViewCell.h; sourceTree = "<group>"; };
+		C2CC858C1DD59C9A00A93429 /* AEGuideViewInnerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEGuideViewInnerCollectionViewCell.m; sourceTree = "<group>"; };
+		C2CC858E1DD59DD300A93429 /* AEGuideViewConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AEGuideViewConstants.h; sourceTree = "<group>"; };
+		C2CC85901DD5C40500A93429 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		C2CC85911DD5C40500A93429 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		C2CC85921DD5C40500A93429 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +97,7 @@
 		C2CC85451DD59A6C00A93429 = {
 			isa = PBXGroup;
 			children = (
+				C2CC85841DD59AC900A93429 /* AEGuideView */,
 				C2CC85501DD59A6C00A93429 /* AEGuideViewDemo */,
 				C2CC856A1DD59A6C00A93429 /* AEGuideViewDemoTests */,
 				C2CC85751DD59A6C00A93429 /* AEGuideViewDemoUITests */,
@@ -101,6 +118,7 @@
 		C2CC85501DD59A6C00A93429 /* AEGuideViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C2CC858F1DD5C40500A93429 /* images */,
 				C2CC85541DD59A6C00A93429 /* AppDelegate.h */,
 				C2CC85551DD59A6C00A93429 /* AppDelegate.m */,
 				C2CC85571DD59A6C00A93429 /* ViewController.h */,
@@ -138,6 +156,30 @@
 				C2CC85781DD59A6C00A93429 /* Info.plist */,
 			);
 			path = AEGuideViewDemoUITests;
+			sourceTree = "<group>";
+		};
+		C2CC85841DD59AC900A93429 /* AEGuideView */ = {
+			isa = PBXGroup;
+			children = (
+				C2CC85851DD59AEA00A93429 /* AEGuideView.h */,
+				C2CC85861DD59AEA00A93429 /* AEGuideView.m */,
+				C2CC85881DD59BFB00A93429 /* AEGuideViewInnerViewController.h */,
+				C2CC85891DD59BFB00A93429 /* AEGuideViewInnerViewController.m */,
+				C2CC858B1DD59C9A00A93429 /* AEGuideViewInnerCollectionViewCell.h */,
+				C2CC858C1DD59C9A00A93429 /* AEGuideViewInnerCollectionViewCell.m */,
+				C2CC858E1DD59DD300A93429 /* AEGuideViewConstants.h */,
+			);
+			path = AEGuideView;
+			sourceTree = SOURCE_ROOT;
+		};
+		C2CC858F1DD5C40500A93429 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				C2CC85901DD5C40500A93429 /* 1.png */,
+				C2CC85911DD5C40500A93429 /* 2.png */,
+				C2CC85921DD5C40500A93429 /* 3.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +289,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2CC85611DD59A6C00A93429 /* LaunchScreen.storyboard in Resources */,
+				C2CC85931DD5C40500A93429 /* 1.png in Resources */,
+				C2CC85941DD5C40500A93429 /* 2.png in Resources */,
+				C2CC85951DD5C40500A93429 /* 3.png in Resources */,
 				C2CC855E1DD59A6C00A93429 /* Assets.xcassets in Resources */,
 				C2CC855C1DD59A6C00A93429 /* Main.storyboard in Resources */,
 			);
@@ -275,7 +320,10 @@
 			files = (
 				C2CC85591DD59A6C00A93429 /* ViewController.m in Sources */,
 				C2CC85561DD59A6C00A93429 /* AppDelegate.m in Sources */,
+				C2CC858A1DD59BFB00A93429 /* AEGuideViewInnerViewController.m in Sources */,
+				C2CC858D1DD59C9A00A93429 /* AEGuideViewInnerCollectionViewCell.m in Sources */,
 				C2CC85531DD59A6C00A93429 /* main.m in Sources */,
+				C2CC85871DD59AEA00A93429 /* AEGuideView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

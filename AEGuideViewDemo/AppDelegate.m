@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AEGuideView.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,32 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    
+    UIViewController* controller = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ViewController"];
+    self.window.rootViewController = controller;
+    
+    NSMutableArray *images = [NSMutableArray new];
+    
+    [images addObject:[UIImage imageNamed:@"1"]];
+    [images addObject:[UIImage imageNamed:@"2"]];
+    [images addObject:[UIImage imageNamed:@"3"]];
+
+    
+    AEGuideView *guideView = [AEGuideView instance];
+    
+    __weak AppDelegate* weakDelegate = self;
+    [guideView showGuideViewWithImages:images
+                        andButtonTitle:@"立即体验"
+                   andButtonTitleColor:[UIColor whiteColor]
+                      andButtonBGColor:[UIColor clearColor]
+                  andButtonBorderColor:[UIColor whiteColor]
+                   withCompletionBlock:^(void){
+                       
+                       [weakDelegate.window makeKeyWindow];
+                   }];
     return YES;
 }
 
