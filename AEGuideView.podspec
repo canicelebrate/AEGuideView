@@ -1,7 +1,7 @@
 #
 Pod::Spec.new do |s|
   s.name         = "AEGuideView"
-  s.version      = "0.9.1"
+  s.version      = "1.0.0"
   s.summary      = "An easy way to let your app show guide view during startup."
   s.description  = "An easy way to let your app show guide view during startup. This framework is written by objective-c"
   s.homepage     = "http://github.com/canicelebrate/AEGuideView"
