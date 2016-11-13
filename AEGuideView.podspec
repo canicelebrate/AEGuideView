@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.source_files = 'AEGuideView/*.{h,m}'
   #s.public_header_files = "AEGuideView/AEGuideView.h"
+  s.resource     = 'AEGuideView/AEGuideView.bundle'
   #s.framework  = 'CoreGraphics'
   s.requires_arc = true
 end
