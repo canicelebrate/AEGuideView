@@ -9,7 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "AEGuideViewConstants.h"
 
+#define kAEGuideView_DefaultPageControlBottomSpace  20
+#define KAEGuideView_DefaultLastButtonBottomSpace   60
+
+
 @interface AEGuideView : UIWindow
+
+@property (nonatomic,strong) NSNumber* pageControlBottomSpace UI_APPEARANCE_SELECTOR;
+@property (nonatomic,strong) NSNumber* lastButtonBottmSpace UI_APPEARANCE_SELECTOR;
+
 +(instancetype) instance;
 /**
  *  引导页图片

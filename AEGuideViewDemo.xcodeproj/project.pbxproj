@@ -21,6 +21,8 @@
 		C2CC85931DD5C40500A93429 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C2CC85901DD5C40500A93429 /* 1.png */; };
 		C2CC85941DD5C40500A93429 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C2CC85911DD5C40500A93429 /* 2.png */; };
 		C2CC85951DD5C40500A93429 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C2CC85921DD5C40500A93429 /* 3.png */; };
+		C2CC859D1DD808D900A93429 /* AEGuideView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C2CC859C1DD808D900A93429 /* AEGuideView.bundle */; };
+		C2CC85A71DD80E7700A93429 /* NSBundle+AEGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC85A61DD80E7700A93429 /* NSBundle+AEGuideView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,11 @@
 		C2CC85901DD5C40500A93429 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		C2CC85911DD5C40500A93429 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		C2CC85921DD5C40500A93429 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		C2CC859C1DD808D900A93429 /* AEGuideView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AEGuideView.bundle; sourceTree = "<group>"; };
+		C2CC859E1DD809E400A93429 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		C2CC859F1DD809E400A93429 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		C2CC85A51DD80E7700A93429 /* NSBundle+AEGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+AEGuideView.h"; sourceTree = "<group>"; };
+		C2CC85A61DD80E7700A93429 /* NSBundle+AEGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+AEGuideView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +175,9 @@
 				C2CC858B1DD59C9A00A93429 /* AEGuideViewInnerCollectionViewCell.h */,
 				C2CC858C1DD59C9A00A93429 /* AEGuideViewInnerCollectionViewCell.m */,
 				C2CC858E1DD59DD300A93429 /* AEGuideViewConstants.h */,
+				C2CC859C1DD808D900A93429 /* AEGuideView.bundle */,
+				C2CC85A51DD80E7700A93429 /* NSBundle+AEGuideView.h */,
+				C2CC85A61DD80E7700A93429 /* NSBundle+AEGuideView.m */,
 			);
 			path = AEGuideView;
 			sourceTree = SOURCE_ROOT;
@@ -289,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2CC85611DD59A6C00A93429 /* LaunchScreen.storyboard in Resources */,
+				C2CC859D1DD808D900A93429 /* AEGuideView.bundle in Resources */,
 				C2CC85931DD5C40500A93429 /* 1.png in Resources */,
 				C2CC85941DD5C40500A93429 /* 2.png in Resources */,
 				C2CC85951DD5C40500A93429 /* 3.png in Resources */,
@@ -318,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2CC85A71DD80E7700A93429 /* NSBundle+AEGuideView.m in Sources */,
 				C2CC85591DD59A6C00A93429 /* ViewController.m in Sources */,
 				C2CC85561DD59A6C00A93429 /* AppDelegate.m in Sources */,
 				C2CC858A1DD59BFB00A93429 /* AEGuideViewInnerViewController.m in Sources */,
@@ -363,6 +375,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C2CC855B1DD59A6C00A93429 /* Base */,
+				C2CC859E1DD809E400A93429 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -371,6 +384,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C2CC85601DD59A6C00A93429 /* Base */,
+				C2CC859F1DD809E400A93429 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -382,6 +396,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -418,7 +433,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -429,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -459,7 +475,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

@@ -14,6 +14,7 @@
 @interface AEGuideViewInnerViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
 {
 }
+@property (nonatomic,assign) BOOL constraintsUpdated;
 
 @property (nonatomic,strong) UIPageControl* pageControl;
 @property (nonatomic,strong) UICollectionView* collectionView;
@@ -27,11 +28,23 @@
     // Do any additional setup after loading the view.
     [self setupCollectionView];
     [self setupPageControl];
+    
+    self.constraintsUpdated = NO;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(void)updateViewConstraints{
+    [super updateViewConstraints];
+    if(self.constraintsUpdated == NO){
+        [self setupCollectionViewConstraints];
+        [self setupPageControlConstaints];
+        self.constraintsUpdated = YES;
+    }
 }
 
 
@@ -49,14 +62,13 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     AEGuideViewInnerCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier_AEGuideViewCell forIndexPath:indexPath];
+    cell.lastButtonBottmSpace = self.lastButtonBottmSpace;
+    cell.contentView.translatesAutoresizingMaskIntoConstraints = NO;
     
     UIImage *img = [self.images objectAtIndex:indexPath.row];
-    CGSize size = [self adapterSizeImageSize:img.size compareSize:kAEGuideViewBounds.size];
-    
-    //自适应图片位置,图片可以是任意尺寸,会自动缩放.
-    cell.imageView.frame = CGRectMake(0, 0, size.width, size.height);
+
     cell.imageView.image = img;
-    cell.imageView.center = CGPointMake(kAEGuideViewBounds.size.width / 2, kAEGuideViewBounds.size.height / 2);
+
     
     if (indexPath.row == self.images.count - 1) {
         [cell.button setHidden:NO];
@@ -68,28 +80,9 @@
     } else {
         [cell.button setHidden:YES];
     }
+
     
     return cell;
-}
-
-/**
- *  计算自适应的图片
- *
- *  @param is 需要适应的尺寸
- *  @param cs 适应到的尺寸
- *
- *  @return 适应后的尺寸
- */
-- (CGSize)adapterSizeImageSize:(CGSize)is compareSize:(CGSize)cs
-{
-    CGFloat w = cs.width;
-    CGFloat h = cs.width / is.width * is.height;
-    
-    if (h < cs.height) {
-        w = cs.height / h * w;
-        h = cs.height;
-    }
-    return CGSizeMake(w, h);
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -105,12 +98,6 @@
  *  @param sender sender
  */
 - (void)nextButtonHandler:(id)sender {
-    /*
-    [self.pageControl removeFromSuperview];
-    [self.view removeFromSuperview];
-    [self setView:nil];
-    [self setPageControl:nil];
-    //*/
     if(self.completion){
         self.completion();
     }
@@ -126,7 +113,9 @@
     layout.itemSize = kAEGuideViewBounds.size;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
-    _collectionView = [[UICollectionView alloc] initWithFrame:kAEGuideViewBounds collectionViewLayout:layout];
+    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+ 
     _collectionView.bounces = NO;
     _collectionView.backgroundColor = [UIColor whiteColor];
     _collectionView.showsHorizontalScrollIndicator = NO;
@@ -145,13 +134,31 @@
 -(void)setupPageControl{
     if (_pageControl == nil) {
         _pageControl = [[UIPageControl alloc] init];
-        _pageControl.frame = CGRectMake(0, 0, kAEGuideViewBounds.size.width, 44.0f);
-        _pageControl.center = CGPointMake(kAEGuideViewBounds.size.width / 2, kAEGuideViewBounds.size.height - 60);
+        _pageControl.translatesAutoresizingMaskIntoConstraints = NO;
         
         _pageControl.numberOfPages = self.images.count;
         
         [self.view addSubview:_pageControl];
     }
+}
+
+-(void)setupCollectionViewConstraints{
+    NSDictionary *dict = NSDictionaryOfVariableBindings(_collectionView);
+    NSString *vfl = @"|-0-[_collectionView]-0-|";
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vfl options:0 metrics:nil views:dict]];
+    
+    vfl = @"V:|-0-[_collectionView]-0-|";
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vfl options:0 metrics:nil views:dict]];
+}
+
+-(void)setupPageControlConstaints{
+    NSDictionary *dict = NSDictionaryOfVariableBindings(_pageControl);
+    NSString *vfl = @"|-0-[_pageControl]-0-|";
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vfl options:0 metrics:nil views:dict]];
+    
+    NSInteger bottomSpace = self.pageControlBottomSpace;
+    vfl = @"V:[_pageControl(44.0)]-bottomSpace-|";
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vfl options:0 metrics:@{@"bottomSpace":@(bottomSpace)} views:dict]];
 
 }
 @end

@@ -13,4 +13,6 @@
 @interface AEGuideViewInnerCollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIButton *button;
+
+@property (nonatomic,assign) NSInteger lastButtonBottmSpace;
 @end

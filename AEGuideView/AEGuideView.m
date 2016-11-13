@@ -16,8 +16,6 @@
 @end
 
 @implementation AEGuideView
-
-
 +(instancetype) instance{
     static AEGuideView* result = nil;
     static dispatch_once_t onceToken;
@@ -43,6 +41,21 @@
         controller.titleColor = titleColor;
         controller.buttonBgColor = bgColor;
         controller.buttonBorderColor = borderColor;
+        
+        //定制化位置
+        if([AEGuideView appearance].lastButtonBottmSpace != nil){
+            controller.lastButtonBottmSpace = [AEGuideView appearance].lastButtonBottmSpace.integerValue;
+        }
+        else{
+            controller.lastButtonBottmSpace = KAEGuideView_DefaultLastButtonBottomSpace;
+        }
+        
+        if([AEGuideView appearance].pageControlBottomSpace != nil){
+            controller.pageControlBottomSpace = [AEGuideView appearance].pageControlBottomSpace.integerValue;
+        }
+        else{
+            controller.pageControlBottomSpace = kAEGuideView_DefaultPageControlBottomSpace;
+        }
         
         __weak AEGuideView* weakSelf = self;
         controller.completion = ^(void){
@@ -79,6 +92,8 @@
     
     NSDictionary *dict = NSDictionaryOfVariableBindings(_coreView);
     NSString *vfl = @"|-0-[_coreView]-0-|";
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vfl options:0 metrics:nil views:dict]];
+    vfl = @"V:|-0-[_coreView]-0-|";
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vfl options:0 metrics:nil views:dict]];
 }
 

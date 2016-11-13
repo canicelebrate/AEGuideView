@@ -14,4 +14,7 @@
 
 typedef void(^AEGuildeViewCompletionBlock)(void);
 
+#define AEGuideViewLibraryLocalizedString(key, comment) \
+NSLocalizedStringFromTableInBundle((key), @"AEGuideView", [NSBundle AEGuideView_LibraryBundle], (comment))
+
 #endif /* AEGuideViewConstants_h */

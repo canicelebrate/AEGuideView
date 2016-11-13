@@ -17,4 +17,7 @@
 @property (nonatomic, strong) NSString *buttonTitle;
 @property (nonatomic,strong) AEGuildeViewCompletionBlock completion;
 @property (nonatomic,weak) UIWindow* window;
+
+@property (nonatomic,assign) NSInteger pageControlBottomSpace;
+@property (nonatomic,assign) NSInteger lastButtonBottmSpace;
 @end

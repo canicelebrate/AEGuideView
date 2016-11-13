@@ -30,6 +30,9 @@
     [images addObject:[UIImage imageNamed:@"1"]];
     [images addObject:[UIImage imageNamed:@"2"]];
     [images addObject:[UIImage imageNamed:@"3"]];
+    
+    [AEGuideView appearance].pageControlBottomSpace = @(0);
+    [AEGuideView appearance].lastButtonBottmSpace = @(40);
 
     
     AEGuideView *guideView = [AEGuideView instance];
