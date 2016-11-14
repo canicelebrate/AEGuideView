@@ -1,13 +1,13 @@
 AEGuideView
 ============
  
-An easy way to let your app show guide view during startup. This framework is inspired from ![HcdGuideView](https://github.com/Jvaeyhcd/HcdGuideView).
+An easy way to let your app show guide view during startup. This framework is inspired from ![HcdGuideView](https://github.com/Jvaeyhcd/HcdGuideView)
+
 This framework overcomes the problem that sometimes HcdGuideView doesn't show at all when app starts up. And this framework has be rewritten to have it comform to auto layout design.
 
 <br />
 
-![AEGuideView](https://dl.dropboxusercontent.com/u/73895323/AEGuideView-GitHub.png)
-
+![AEGuideView](https://github.com/canicelebrate/AEGuideView/blob/master/AEGuideView.gif)
 
 <br />
 ## Installation
